@@ -1,0 +1,152 @@
+
+/* styles.css - neon dark portfolio */
+:root{
+  --bg-1: #071826;
+  --bg-2: #092b34;
+  --panel: #0f2a33;
+  --text: #dbeef3;
+  --muted: #9fb3bd;
+  --accent: #11e0e6;
+  --accent-2: #8b4cf3;
+  --glass: rgba(255,255,255,0.03);
+  --radius: 14px;
+  --container: 1100px;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background: radial-gradient(1200px 600px at 80% 40%, rgba(17,224,230,0.06), transparent),
+              linear-gradient(180deg, var(--bg-1), var(--bg-2));
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* container */
+.container{
+  max-width:var(--container);
+  margin:0 auto;
+  padding:30px;
+}
+
+/* header */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:linear-gradient(180deg, rgba(7,16,30,0.96), rgba(7,16,30,0.85));
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(6px);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{font-weight:700;color:var(--text);font-size:1.15rem}
+.nav{display:flex;gap:26px}
+.nav-link{color:var(--text);text-decoration:none;opacity:0.95}
+.nav-link:hover{color:var(--accent)}
+/* hero */
+.hero{padding:80px 0 60px}
+.hero-grid{display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center}
+.hero-title{font-size:48px;margin:8px 0;font-weight:800}
+.hero-sub{font-size:24px;margin:0;color:var(--muted)}
+.hero-sub .accent{color:var(--accent)}
+.intro{font-weight:600;color:#cbe7ea}
+.hero-desc{color:var(--muted);max-width:520px;line-height:1.6;margin:18px 0}
+.social-row{display:flex;gap:12px;margin:18px 0}
+.social{width:40px;height:40px;border-radius:50%;display:inline-grid;place-items:center;border:1px solid rgba(255,255,255,0.06);color:var(--accent);text-decoration:none;background:transparent;box-shadow:0 6px 30px rgba(17,224,230,0.03)}
+.btn{display:inline-block;padding:12px 22px;border-radius:999px;text-decoration:none;color:#042b2f;font-weight:700;background:linear-gradient(90deg,var(--accent), #4be8f0);border:none;cursor:pointer}
+.btn.small{padding:10px 16px;font-size:0.95rem}
+.btn.wide{width:100%}
+.btn.neon{background:var(--accent);color:#042b2f;box-shadow:0 6px 30px rgba(17,224,230,0.35);}
+
+/* avatar ring */
+.avatar-ring{
+  width:360px;height:360px;border-radius:50%;
+  display:grid;place-items:center;
+  background: conic-gradient(from 180deg at 50% 50%, var(--accent), var(--accent-2));
+  padding:8px;
+  box-shadow:0 30px 80px rgba(17,224,230,0.08), 0 0 40px rgba(139,76,243,0.12);
+}
+.avatar-ring.small{width:260px;height:260px;padding:6px}
+.avatar-img{
+  width:100%;height:100%;object-fit:cover;border-radius:50%;box-shadow:0 6px 30px rgba(0,0,0,0.5);
+  border:10px solid rgba(10,12,14,0.9);
+}
+
+/* about */
+.about{padding:60px 0}
+.about-grid{display:grid;grid-template-columns:360px 1fr;gap:40px;align-items:center}
+.about-content h2{font-size:36px;margin:0 0 6px}
+
+/* skills */
+.skills{padding:60px 0}
+.center{text-align:center}
+.skills-grid{display:grid;grid-template-columns:1fr 380px;gap:40px;margin-top:28px;align-items:start}
+.skill-title{font-weight:700;border-bottom:3px solid rgba(255,255,255,0.04);display:inline-block;padding-bottom:10px;margin-bottom:18px}
+.skill{margin-bottom:18px}
+.skill label{display:flex;justify-content:space-between;font-weight:600;color:var(--muted);margin-bottom:6px}
+.bar-bg{height:10px;background:rgba(0,0,0,0.25);border-radius:999px;overflow:hidden}
+.bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0%;transition:width 1.2s ease}
+
+/* donuts */
+.donuts{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.donut{
+  --size:120px;
+  width:var(--size);height:var(--size);
+  border-radius:50%;
+  background:conic-gradient(var(--accent) 0deg, var(--accent) 0deg, rgba(255,255,255,0.06) 0deg);
+  display:grid;place-items:center;
+  position:relative;align-self:center;
+  margin:0 auto;
+  box-shadow:0 8px 20px rgba(0,0,0,0.45);
+}
+.donut::after{
+  content:attr(data-label) " " attr(data-value) "%";
+  position:absolute;bottom:-34px;width:100%;text-align:center;font-weight:600;color:var(--muted);
+}
+
+/* services */
+.services{padding:60px 0}
+.cards{display:flex;gap:24px;margin-top:24px}
+.card{flex:1;background:var(--panel);padding:28px;border-radius:16px;box-shadow:0 20px 40px rgba(11,44,60,0.25);border:1px solid rgba(255,255,255,0.02)}
+.card-icon{font-size:28px;color:var(--accent);margin-bottom:10px}
+
+/* projects */
+.projects{padding:60px 0}
+.project-row{display:flex;gap:24px}
+.project-card{flex:1;border-radius:10px;overflow:hidden;box-shadow:0 30px 60px rgba(2,22,30,0.5)}
+.project-card img{width:100%;height:220px;object-fit:cover;display:block}
+
+/* contact */
+.contact{padding:60px 0}
+.contact-grid{display:grid;grid-template-columns:1fr 480px;gap:40px;align-items:start}
+.contact-info h2{font-size:30px;margin-bottom:6px}
+.contact-form input, .contact-form textarea{
+  width:100%;padding:12px;border-radius:8px;border:2px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.03);color:var(--text);margin-bottom:12px;outline:none
+}
+.contact-line{color:var(--muted);margin-top:8px}
+
+/* footer */
+.site-footer{padding:18px 0;background:linear-gradient(180deg, rgba(6,20,28,0.9), rgba(6,20,28,0.85));border-top:3px solid rgba(0,0,0,0.1);text-align:center;color:var(--muted)}
+
+/* back to top */
+#backToTop{position:fixed;right:20px;bottom:20px;width:44px;height:44px;border-radius:8px;border:none;background:var(--accent);color:#012;box-shadow:0 10px 30px rgba(17,224,230,0.2);display:none;cursor:pointer}
+
+/* responsive */
+@media (max-width:1000px){
+  .hero-grid{grid-template-columns:1fr 320px}
+  .about-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .cards{flex-direction:column}
+  .project-row{flex-direction:column}
+  .avatar-ring{width:300px;height:300px}
+}
+@media (max-width:620px){
+  .nav{display:none}
+  .hero-grid{grid-template-columns:1fr}
+  .avatar-ring{width:240px;height:240px}
+  .avatar-ring.small{width:180px;height:180px}
+}
